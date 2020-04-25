@@ -1,0 +1,86 @@
+
+\\\\\\\\\MAIN 
+
+package stack;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner scan = new Scanner(System.in);        
+        	System.out.println("Stack Test\n");
+        	System.out.println("Enter Size of Integer Stack ");
+		int n = scan.nextInt();
+                System.out.println("Push Elements in Stack");
+                stack_arr obj = new stack_arr(n);
+                for(int i = 0; i < n; i++){
+                    obj.push(scan.nextInt());
+                
+                }
+               obj.display();
+               //sSystem.out.println("Peek Element: "+obj.peek());
+               System.out.println("Pop from Stack");
+               for(int i = 0; i < n; i++){
+                    obj.pop();
+                
+                }
+               obj.display();
+               obj.pop();
+    }          
+    
+}
+
+\\\\\\\\\CLass STACK
+
+import java.util.*;
+public class stack_arr {
+    int arr[];
+	int top, size, len;
+	public stack_arr(int n){  //constructor
+		size = n;
+		len = 0;
+		arr = new int[size];
+		top = -1;
+	
+	}
+	public boolean isEmpty(){
+		return top == -1;
+	}
+	public boolean isFull(){
+		return top == size;
+        }
+	public int getSize(){
+		return len;
+	}
+//	public int peek(){
+//	if(isEmpty())
+//		throw new NoSuchElementException("Underflow");
+//        len--;
+//        return arr[top--];
+//}
+	public void push(int i){
+	if(isFull())
+		throw new IndexOutOfBoundsException("Overflow Exception");
+	
+	arr[++top] = i;
+	len++;
+}
+	//pop method
+	public int pop(){
+		if(isEmpty())	
+			throw new NoSuchElementException("Underflow");
+	len--;
+	return arr[top--];
+}
+	public void display()
+    {
+        System.out.print("\nStack = ");
+        if (len == 0)
+        {
+            System.out.print("Empty\n");
+            return ;
+        }
+        for (int i = top; i >= 0; i--)
+            System.out.print(arr[i]+" ");
+        	System.out.println();
+    }    
+}

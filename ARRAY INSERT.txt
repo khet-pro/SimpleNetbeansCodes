@@ -1,0 +1,65 @@
+////Main Program
+
+package arrayassignment;
+import java.util.Scanner;
+
+public class ArrayAssignment {
+
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Traversing obj=new Traversing();
+        
+        System.out.println("Enter array size: ");
+        int n = sc.nextInt();
+        String[]array_name = new String[n];
+        System.out.println("enter elements in a array; ");
+        
+        for(int i=0;i<array_name.length;i++)
+        {
+            
+            array_name[i] = sc.nextLine();
+        }
+         for(int i=0;i<array_name.length;i++)
+        {
+            String elements = array_name[i];
+            System.out.println("element :"+elements);
+            
+        }
+         System.out.println("do u want to insert array element: ");
+            String cc = sc.nextLine();
+            if("yes".equals(cc))
+            {
+           String[] array1=array_name;
+            System.out.println("enter array to insert");
+            String f= sc.nextLine();
+            array1 = obj.insert(array1, f);
+               for(String a:array1)
+               {
+                   System.out.println(a);   
+               }  
+            }
+    }
+    
+}
+
+////Class:Traversing
+
+
+package arrayassignment;
+
+
+public class Traversing {
+    public String[] insert(String[] originalArray, String newItem){
+        
+        int currentSize = originalArray.length;
+        int newSize = currentSize+1;
+        String[] tempArray = new String[newSize];
+        for (int i=0;i< originalArray.length;i++)
+        {
+            tempArray[i] = originalArray[i];
+        }
+        tempArray[newSize-1]= newItem;
+        return tempArray;
+    }
+}

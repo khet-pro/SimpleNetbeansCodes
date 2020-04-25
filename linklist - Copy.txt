@@ -1,0 +1,106 @@
+\\\Node class:
+
+public Node find(int data){
+        if (head == null)
+            return null;
+        if(head.data == data)
+            return head;
+        Node node = head;
+        while(node.nextNode != null){
+            node =  node.nextNode;  
+            if(node.data == data)
+                return node;
+            
+        }
+        return null;
+        
+    }
+
+\\\\\\\\\\\\\\
+
+\\\\\\\\\linkedlist class:
+public class linkedlist {
+    
+    Node head;
+    Node tail;
+    //int size = 0;
+    public void add(int id){
+        
+        Node node = new Node(id);
+        if(tail == null ){
+            head = node;
+            tail = node;
+        }
+        else {
+           tail.nextNode = node;
+           tail = node;
+        
+        }
+    }
+    
+    public void delete(int data){
+        Node temp = head;
+        head = head.nextNode;
+        temp.nextNode = null;
+        
+    
+    }
+    
+    public void traverse(){
+        if(head!=null){
+        
+            Node node = head;
+            System.out.println(node);
+            while(node.nextNode != null){
+                node = node.nextNode; 
+                System.out.println(node);
+            
+            }
+        
+        }
+    
+    }
+    
+                           
+        
+    public Node find(int data){
+        if (head == null)
+            return null;
+        if(head.data == data)
+            return head;
+        Node node = head;
+        while(node.nextNode != null){
+            node =  node.nextNode;  
+            if(node.data == data)
+                return node;
+            
+        }
+        return null;
+        
+    }
+    
+    
+    
+}
+
+\\\\\\\\\\\
+
+\\\\\\\\\\Main class:
+public class Linked_List_Man {
+    public static void main(String[] args) {
+        // TODO code application logic here
+        linkedlist list = new linkedlist();
+        list.add(15);
+	list.add(16);
+	list.add(10);
+        list.traverse();
+        list.delete(15);
+        System.out.println("-------------------------------------");
+        list.traverse();
+//       System.out.println("Done");
+        System.out.println("15 exist?"+list.find(15));
+        System.out.println("16 exist?"+list.find(16));
+        System.out.println("10 exist?"+list.find(10));
+        System.out.println("22 exist? "+list.find(22));
+
+\\\\\\\\\\\\\\\\\\

@@ -1,0 +1,37 @@
+/////Array Deletion
+
+package arr_deletion;
+
+import java.util.Arrays;
+
+
+public class Arr_deletion {
+
+    //can not remove indexs in array
+    //we can remove elements
+    //zero is avalue
+    // null array is removed
+    
+    public static void main(String[] args) {
+        int[] arr={10,20,30,40,50};
+        java.util.Scanner sc =new java.util.Scanner(System.in);
+        System.out.println("Enter element to delete: ");
+        int del = sc.nextInt();
+        for (int i=0;i<arr.length;i++)
+            if(arr[i]==del)
+        {
+            for(int j=1;j<arr.length-1;j++)
+            {
+                arr[j]=arr[j+1];
+                
+            }
+        }
+        System.out.println("array deleted");
+        System.out.println(Arrays.toString(arr));
+          for(int i=0;i<arr.length-1;i++)
+          {
+              System.out.println(arr[i]);
+          }
+    }
+    
+}

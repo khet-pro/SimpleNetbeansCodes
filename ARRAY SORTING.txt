@@ -1,0 +1,69 @@
+\\\\Main sorting
+
+package pkg1812134_bubblesort;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+       
+       int sizeOf;
+       Scanner sc = new Scanner(System.in);
+       
+        System.out.println("Enter the size of The Array : ");
+       sizeOf= sc.nextInt();
+        System.out.println("\n\n");
+       int arr[] = new int[sizeOf];
+       
+       for(int i=0; i<sizeOf;i++){
+       
+       arr[i]=sc.nextInt();
+       
+       
+       }
+       
+       Sorting sort = new Sorting();
+      
+       
+       sort.sorted(arr);
+       
+       
+        System.out.println("\n\n");
+       for(int i=0; i<arr.length;i++){
+           System.out.println(arr[i]);
+       
+       }
+       
+    }
+       
+     
+}
+
+\\\\class sorting
+
+package pkg1812134_bubblesort;
+
+public class Sorting {
+
+   
+    public  int[] sorted(int[] a){
+    
+         int n = a.length;
+        for (int i = 0; i < a.length; i++){
+            for (int j = i+1; j < a.length; j++){
+                if (a[i] > a[j])
+                {
+                    // swap temp and arr[i]
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+    
+                }
+    }
+}
+    return a;
+}
+
+}
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\

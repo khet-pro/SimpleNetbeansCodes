@@ -1,0 +1,101 @@
+INSERT SORT 
+
+
+
+package pkg1812324_insertionsort;
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) 
+    {
+        int arr[] = {14,33,10,35,19,42,44,12,15};
+        int a=sort1(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+    public static int sort1(int arr[])
+    {
+        for(int j=1;j<arr.length;j++)
+        {
+            int key=arr[j];
+            int i=j-1;
+            while(i>=0 && arr[i]>key)
+            {
+                arr[i+1] = arr[i];
+                i=i-1;
+                
+            }
+            arr[i+1]=key;
+        }
+        return (0);
+    }
+    
+}
+
+
+END 
+
+SELECTION SORT
+
+
+package pkg1812324_selectionsort;
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) 
+    {
+        int arr[] = {14,33,10,35,19,42,44,12,15};
+        int a=selection1(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+    public static int selection1(int arr[])
+    {
+        for(int i=0;i<arr.length;i++)
+        {
+            int min_idx = i;
+            for(int j=i+1;j<arr.length;j++)
+            
+                if(arr[j]<arr[min_idx])
+                    min_idx=j;
+                int temp= arr[min_idx];
+                arr[min_idx]=arr[i];
+                arr[i]=temp;
+                
+            
+        }
+        return 0;
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+package merge;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class MERGE {
+
+    
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+         
+        System.out.println("Enter size of Array1: ");
+        int n=sc.nextInt();
+        int [] arr1= new int[n];
+        System.out.println("enter arr1 elements: ");
+        for(int i=0;i<arr1.length;i++)
+        {
+            arr1[i]=sc.nextInt();
+        }
+        System.out.println("Arr1: ");
+        for(int i=0;i<arr1.length;i++)
+        {
+            System.out.println("Arr1 elemants: "+arr1[i]);
+        }
+        
+        System.out.println("Enter Size of Arr2: ");
+        int nn=sc.nextInt();
+        int [] arr2=new int[nn];
+        System.out.println("enter arra2 elements: ");
+        for(int i=0;i<arr2.length;i++)
+        {
+            arr2[i]=sc.nextInt();
+        }
+        System.out.println("Arr2: ");
+        for(int i=0;i<arr2.length;i++)
+        {
+            System.out.println("Arr2 elemants: "+arr2[i]);
+        }
+        System.out.println("Array merged: ");
+        int length=arr1.length+arr2.length;
+        int [] mergarr= new int[length];
+        int position=0;
+        for(int element:arr1)
+        {
+            mergarr[position]=element;
+            position++;
+        }
+        for (int element:arr2)
+        {
+            mergarr[position]=element;
+            position++;
+        }
+        System.out.println(Arrays.toString(mergarr));
+        
+    }
+    
+}

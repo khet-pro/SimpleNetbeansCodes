@@ -1,0 +1,129 @@
+\\\\\\\\\MAIN
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner scan = new Scanner(System.in);
+ 
+        System.out.println("Array Queue Test\n");
+        System.out.println("Enter Size of Integer Queue ");
+        int n = scan.nextInt();
+        queue_arr q = new queue_arr(n);
+        System.out.println("Enqueue Element in Queue: ");
+        try
+                {
+                    for(int i = 0; i < n; i++){
+                   q.insert(scan.nextInt());
+                   
+                
+                }
+                    
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Error : " +e.getMessage());
+                }
+        System.out.println("Element in Queue: ");
+        q.display();
+        //System.out.println("Enter element in queue: ");
+        //q.insert(scan.nextInt());
+        //System.out.println("Full status = "+q.isfull());
+        System.out.println("Dequeue element from queue");
+        try
+                {
+                    for(int i = 0; i < n; i++){
+                    q.remove();
+                    
+                }
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Error : " +e.getMessage());
+                }
+        System.out.println("\"Empty status = "+q.isEmpty());
+        
+        
+    }
+    
+}
+
+
+\\\\\\\\\\\CLASS QUEUE
+
+import java.util.*;
+public class queue_arr {
+    int queue[];
+    int front, rear, size, len;
+    
+    public queue_arr(int n){
+        size = n;
+        len = 0;
+        queue = new int[size];
+        front = -1;
+        rear = -1;
+    }
+    public boolean isEmpty(){
+        return front == -1;
+    
+    }
+    public boolean isfull(){
+        return front == 0 && rear == size -1;    
+    }
+    public int getSize(){
+        return len;
+    
+    }
+    public void insert(int i){
+        if(rear == -1){
+            front = 0;
+            rear = 0;
+        queue[rear] = i;
+ 
+        }
+        else if(rear+1 >= size)
+            throw new IndexOutOfBoundsException("Overflow Exception");
+        else if ( rear + 1 < size)
+            queue[++rear] = i;    
+            len++ ; 
+    
+    }
+    
+    public int remove(){
+        
+        if (isEmpty())
+           throw new NoSuchElementException("Underflow Exception");
+        else 
+        {
+            len-- ;
+            int ele = queue[front];
+            if ( front == rear) 
+            {
+                front = -1;
+                rear = -1;
+            }
+            
+            else
+                front++;                
+            return ele;
+        }
+        
+    }
+
+    public void display()
+    {
+        System.out.print("\nQueue = ");
+        if (len == 0)
+        {
+            System.out.print("Empty\n");
+            return ;
+        }
+        for (int i = front; i <= rear; i++)
+            System.out.print(queue[i]+" ");
+        System.out.println();        
+    }
+            
+    
+}
+
+\\\\\\\\\\\\\\\\\\\\\\

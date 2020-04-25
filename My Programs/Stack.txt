@@ -1,0 +1,78 @@
+ package pkg1812325_stack;
+
+public class stack_arr {
+  int arr[];
+  int top, size, len;
+  public stack_arr(int n){
+      size = n;
+      len = 0;
+      arr = new int [size];
+      top = -1;
+  }
+  public boolean isempty(){
+      return top == -1;
+  }
+  public boolean isfull(){
+      return top == size;
+      
+  }
+  public int getsize(){
+      return len;
+     
+  }
+  public void push(int i){
+      if(isfull())
+          throw new IndexOutOfBoundsException("overflow exception");
+      arr[++top] = i;
+      
+  }
+  public int pop(){
+      if(isfull())
+           throw new NoSuchElementException("overflow exception");
+          len --;
+          return arr[top--];
+          
+  }
+  public void display(){
+      System.out.println("\nstack = ");
+      if(len==0)
+          System.out.println("empty\n");
+      return;
+  }
+     for(int i = top ; i>=0 ;i--){
+            System.out.println(arr[i]+"");
+            System.out.println();
+  }
+          
+          }
+
+ //main class
+
+package pkg1812325_stack;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+      Scanner scan = new  Scanner(System.in);
+        System.out.println("stacktest\n");
+        System.out.println("ENTER SIZE OF INTEGER STACK");
+        int n = scan.nextInt();
+        System.out.println("push element in stack ");
+        stack_arr obj = new stack_arr(n);
+        for (int i = 0; i< n; i ++){
+            obj.push(scan.nextInt());
+        }
+      obj.display();
+        System.out.println(" pop from stack");
+        for(int i = 0 ; i< n; i++){
+            obj.pop();
+        } 
+           
+      obj.display();
+      obj.pop();
+        
+    }
+    
+}

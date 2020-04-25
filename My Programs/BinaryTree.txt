@@ -1,0 +1,92 @@
+package bst1;
+//https://www.cs.usfca.edu/~galles/visualization/BST.htm
+class Node {
+  Node left;
+  Node right;
+  int data;
+ public String toString(){
+        return "" +data;
+}
+}
+
+
+
+class BST {
+    
+    Node root;
+  
+  public Node insert(Node node, int val) {
+    if(node == null) {
+      return createNewNode(val);
+    }
+    
+    if(val < node.data) {
+      node.left = insert(node.left, val);
+    } else if(val > node.data) {
+      node.right = insert(node.right, val);
+    }
+    
+    return node;
+  }
+  
+  public Node createNewNode(int k) {
+    Node a = new Node();
+    a.data = k;
+    a.left = null;
+    a.right = null;
+    return a;
+  }
+ 
+  
+  public static void inorder(Node root){
+      if(root == null) {
+          return;
+      }
+      inorder(root.left);
+      System.out.println(root.data+ " ");
+      inorder(root.right);
+  }
+  
+  public static void preorder(Node root){
+      if(root == null) {
+          return;
+      }
+      System.out.println(root.data+ " ");
+      preorder(root.left);
+      preorder(root.right);
+      
+      
+      
+      
+  }
+  
+  
+  
+ 
+}
+public class BST1 {
+    public static void main(String[] args) {
+        // TODO code application logic here
+         BST a = new BST();
+        Node root = null;
+    
+    root = a.insert(root, 40);
+    root = a.insert(root, 20);
+    root = a.insert(root, 10);
+    root = a.insert(root, 5);
+    
+    root = a.insert(root, 30);
+    root = a.insert(root, 50);
+    root = a.insert(root, 60);
+    root = a.insert(root, 67);
+    root = a.insert(root, 78);
+    
+        System.out.println("Inorder Traversal: ");
+        a.inorder(root);
+        System.out.println("----------------------------------------------");
+        System.out.println("Preorder Traversal");
+        a.preorder(root);
+        
+    }
+    
+}
